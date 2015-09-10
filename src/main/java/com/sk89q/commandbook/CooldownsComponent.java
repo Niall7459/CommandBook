@@ -38,6 +38,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
+import org.bukkit.event.server.ServerCommandEvent;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -177,7 +178,7 @@ public class CooldownsComponent extends BukkitComponent implements Listener, Run
         }
     }
 
-    @EventHandler(priority = EventPriority.LOWEST, ignoreCancelled = true) // TODO: Make ServerCommandEvent Cancellable
+    @EventHandler(priority = EventPriority.LOWEST, ignoreCancelled = true)
     public void serverCommandHandler(ServerCommandEvent event) {
         if (!checkCooldown(event.getSender(), event.getCommand())
                 || !checkWarmup(event.getSender(), event.getCommand())) {
