@@ -177,13 +177,13 @@ public class CooldownsComponent extends BukkitComponent implements Listener, Run
         }
     }
 
-    /*@EventHandler(priority = EventPriority.LOWEST, ignoreCancelled = true) // TODO: Make ServerCommandEvent Cancellable
+    @EventHandler(priority = EventPriority.LOWEST, ignoreCancelled = true) // TODO: Make ServerCommandEvent Cancellable
     public void serverCommandHandler(ServerCommandEvent event) {
         if (!checkCooldown(event.getSender(), event.getCommand())
                 || !checkWarmup(event.getSender(), event.getCommand())) {
             event.setCancelled(true);
         }
-    }*/
+    }
 
     public boolean checkCooldown(CommandSender sender, String command) {
         CooldownState state = sessions.getSession(CooldownState.class, sender);
@@ -413,7 +413,7 @@ public class CooldownsComponent extends BukkitComponent implements Listener, Run
 
         public abstract boolean remove(CommandSender sender, String name);
 
-        /*@Command(aliases = {"list", "ls"}, desc = "List active command limitations", usage = "[-p page] [player]", flags = "p:", min = 0, max = 1)
+        @Command(aliases = {"list", "ls"}, desc = "List active command limitations", usage = "[-p page] [player]", flags = "p:", min = 0, max = 1)
         public void list(CommandContext args, CommandSender sender) throws CommandException {
             CommandSender target;
             if (args.argsLength() == 0) {
@@ -433,6 +433,6 @@ public class CooldownsComponent extends BukkitComponent implements Listener, Run
             } else {
                 throw new CommandException("No " + getTypeName() + " for input " + item);
             }
-        }*/
+        }
     }
 }
