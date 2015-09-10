@@ -178,13 +178,13 @@ public class CooldownsComponent extends BukkitComponent implements Listener, Run
         }
     }
 
-    @EventHandler(priority = EventPriority.LOWEST, ignoreCancelled = true)
+    /*@EventHandler(priority = EventPriority.LOWEST, ignoreCancelled = true)
     public void serverCommandHandler(ServerCommandEvent event) {
         if (!checkCooldown(event.getSender(), event.getCommand())
                 || !checkWarmup(event.getSender(), event.getCommand())) {
             event.setCancelled(true);
         }
-    }
+    }*/
 
     public boolean checkCooldown(CommandSender sender, String command) {
         CooldownState state = sessions.getSession(CooldownState.class, sender);
